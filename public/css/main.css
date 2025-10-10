@@ -256,6 +256,9 @@ body {
   background-repeat: no-repeat;
   background-size: 1.5em 1.5em;
   padding-right: var(--space-12);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 /* Buttons */
