@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+</head>
+<body>
+    <header>
+        <h1>To Do App By Aldo</h1>
+        <p>Organize your tasks efficiently!</p>
+    </header>
+    
+    <main id="app">
+        <div>
+            <h2>Add New Task</h2>
+            <form action="" id="task-form">
+                <label for="task-input">Enter Task</label>
+                <input type="text" id="task-input" aria-label="Task Name">
+                <label for="task-description">Description</label>
+                <input type="text" id="task-description" aria-label="Task Description">
+                <input type="date" id="task-due-date" aria-label="Due Date">
+                <input type="time" id="task-due-time" aria-label="Due Time">
+                <label for="task-priority">Priority</label>
+                <select name="priority" id="task-priority" aria-label="Task Priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button type="submit" aria-label="Add Task">Add Task</button>
+            </form>
+        </div>
+        <div>
+            <h2>Task List</h2>
+            <ul id="task-list" aria-live="polite">
+                <!-- Task items will be dynamically added here -->
+                
+            </ul>
+            
+            <div>
+                <input type="checkbox" id="hide-completed">
+                <label for="hide-completed">Hide Completed Tasks</label>
+                <!-- Control Buttons -->
+                <button id="mark-all-complete" aria-label="Mark All Tasks as Completed">Mark All As Complete</button>
+                <button id="delete-completed" aria-label="Delete All Completed Tasks">Delete Completed</button>
+                <button id="delete-all" aria-label="Delete All Tasks">Delete All</button>
+                
+                <!-- Commented out unused buttons -->
+                <!-- <button id="clear-completed" aria-label="Clear Completed Tasks">Clear Completed Tasks</button> -->
+                <!-- <button id="select-all" aria-label="Select All Tasks">Select All Tasks</button> -->
+                <!-- <button id="mark-completed" aria-label="Mark All Completed Tasks">Mark Selected As Completed</button> -->
+                <!-- <button id="delete-selected" aria-label="Delete All Selected Tasks">Delete Selected Tasks</button> -->
+            </div>
+            <p>Total Tasks: 0</p>
+            <p>Completed Tasks: 0</p>
+
+        </div>
+
+    </main>
+    <script src="../src/js/main.js"></script>
+</body>
+</html>
