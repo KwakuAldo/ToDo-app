@@ -231,6 +231,14 @@ body {
 input[type="date"].form-input,
 input[type="time"].form-input {
   inline-size: 100%;
+  color-scheme: dark;
+}
+
+input[type="date"].form-input::-webkit-calendar-picker-indicator,
+input[type="time"].form-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.75;
+  filter: invert(60%) sepia(14%) saturate(795%) hue-rotate(272deg) brightness(88%) contrast(87%);
 }
 
 .form-input::placeholder,
