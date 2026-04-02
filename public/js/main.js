@@ -54,13 +54,7 @@ function showErrors(errors) {
     const errorDiv = document.createElement('div');
     errorDiv.id = 'form-errors';
     errorDiv.className = 'error-messages';
-    errorDiv.style.backgroundColor = '#f8d7da';
-    errorDiv.style.border = '1px solid #f5c6cb';
-    errorDiv.style.padding = '10px';
-    errorDiv.style.color = 'red';
-    errorDiv.style.marginTop = '10px';
-    errorDiv.style.borderRadius = '5px';
-    errorDiv.innerHTML = errors.map(err => `<p style="margin: 5px 0;">${err}</p>`).join('');
+    errorDiv.innerHTML = errors.map(err => `<p>${err}</p>`).join('');
     form.appendChild(errorDiv);
 }
 
@@ -168,7 +162,7 @@ function editTask(taskId) {
             <div class="task-content">
                 <input type="text" class="form-input" id="edit-name-${task.id}" value="${task.name}" placeholder="Task name">
                 <textarea class="form-textarea" id="edit-desc-${task.id}" placeholder="Description">${task.description}</textarea>
-                <div style="display: flex; gap: 0.5rem;">
+                <div class="edit-row">
                     <input type="date" class="form-input" id="edit-date-${task.id}" value="${task.dueDate}">
                     <input type="time" class="form-input" id="edit-time-${task.id}" value="${task.dueTime}">
                 </div>

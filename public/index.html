@@ -7,109 +7,125 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="header__content">
-                <div>
-                    <h1 class="header__title">
-                        <span class="header__icon">✓</span>
-                        To Do App By Aldo
-                    </h1>
-                    <p class="header__subtitle">Organize your tasks efficiently!</p>
+    <div class="terminal-desktop">
+        <div class="terminal-window">
+            <header class="header">
+                <div class="container">
+                    <div class="terminal-frame" aria-hidden="true">
+                        <div class="terminal-controls">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="terminal-menu">terminal</div>
+                        <div class="terminal-profile">aldo@ubuntu</div>
+                    </div>
+                    <div class="header__content">
+                        <p class="terminal-tab">todo@ubuntu: ~/tasks</p>
+                        <div>
+                            <h1 class="header__title">
+                                <span class="header__icon">✓</span>
+                                To Do App By Aldo
+                            </h1>
+                            <p class="header__subtitle">A task list presented like Ubuntu's default terminal window.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </header>
-    
-    <main class="main">
-        <div class="container">
-            <section class="task-input">
-                <h2>Add New Task</h2>
-                <form class="task-form" id="task-form">
-                    <div class="form-group">
-                        <label class="form-label" for="task-input">Task Title</label>
-                        <input type="text" class="form-input" id="task-input" aria-label="Task Name" placeholder="What needs to be done?">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="task-description">Description</label>
-                        <textarea class="form-textarea" id="task-description" aria-label="Task Description" placeholder="Add more details..."></textarea>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="task-due-date">Due Date</label>
-                            <input type="date" class="form-input" id="task-due-date" aria-label="Due Date">
+            </header>
+            
+            <main class="main">
+                <div class="container">
+                    <section class="task-input">
+                        <p class="section-prompt">aldo@ubuntu:<span>~</span>$ ./add-task</p>
+                        <h2>Add New Task</h2>
+                        <form class="task-form" id="task-form">
+                            <div class="form-group">
+                                <label class="form-label" for="task-input">Task Title</label>
+                                <input type="text" class="form-input" id="task-input" aria-label="Task Name" placeholder="What needs to be done?">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="task-description">Description</label>
+                                <textarea class="form-textarea" id="task-description" aria-label="Task Description" placeholder="Add more details..."></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="task-due-date">Due Date</label>
+                                    <input type="date" class="form-input" id="task-due-date" aria-label="Due Date">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="task-due-time">Due Time</label>
+                                    <input type="time" class="form-input" id="task-due-time" aria-label="Due Time">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label" for="task-priority">Priority</label>
+                                    <select class="form-select" id="task-priority" aria-label="Task Priority">
+                                        <option value="low">Low</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn--primary btn--lg" aria-label="Add Task">
+                                <span>+</span>
+                                Add Task
+                            </button>
+                        </form>
+                    </section>
+
+                    <section class="task-list-section">
+                        <p class="section-prompt">aldo@ubuntu:<span>~</span>$ ls -l tasks</p>
+                        <div class="task-list-header">
+                            <h2 class="task-list-title">Your Tasks</h2>
+                            <div class="task-stats">
+                                <div class="stat">
+                                    <span class="stat-number" id="total-tasks">0</span>
+                                    <span class="stat-label">Total</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number" id="completed-tasks">0</span>
+                                    <span class="stat-label">Completed</span>
+                                </div>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label class="form-label" for="task-due-time">Due Time</label>
-                            <input type="time" class="form-input" id="task-due-time" aria-label="Due Time">
-                        </div>
+                        <ul class="task-list" id="task-list" aria-live="polite">
+                            <!-- Task items will be dynamically added here -->
+                        </ul>
                         
-                        <div class="form-group">
-                            <label class="form-label" for="task-priority">Priority</label>
-                            <select class="form-select" id="task-priority" aria-label="Task Priority">
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
-                            </select>
+                        <div class="control-buttons">
+                            <button class="btn btn--secondary" id="mark-all-complete" aria-label="Mark All Tasks as Completed">
+                                ✓ Mark All Complete
+                            </button>
+                            <button class="btn btn--warning" id="delete-completed" aria-label="Delete All Completed Tasks">
+                                🗑️ Delete Completed
+                            </button>
+                            <button class="btn btn--danger" id="delete-all" aria-label="Delete All Tasks">
+                                ⚠️ Delete All
+                            </button>
                         </div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn--primary btn--lg" aria-label="Add Task">
-                        <span>+</span>
-                        Add Task
-                    </button>
-                </form>
-            </section>
-            <section class="task-list-section">
-                <div class="task-list-header">
-                    <h2 class="task-list-title">Your Tasks</h2>
-                    <div class="task-stats">
-                        <div class="stat">
-                            <span class="stat-number" id="total-tasks">0</span>
-                            <span class="stat-label">Total</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number" id="completed-tasks">0</span>
-                            <span class="stat-label">Completed</span>
-                        </div>
+                    </section>
+                </div>
+            </main>
+            
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer__content">
+                        <p class="footer__text">
+                            user@ubuntu:~$ echo "Built by "
+                            <a href="https://dotaldokwaku.netlify.app" target="_blank" rel="noopener noreferrer" class="footer__link">
+                                Aldo Efui Adabunu
+                            </a>
+                        </p>
                     </div>
                 </div>
-                
-                <ul class="task-list" id="task-list" aria-live="polite">
-                    <!-- Task items will be dynamically added here -->
-                </ul>
-                
-                <div class="control-buttons">
-                    <button class="btn btn--secondary" id="mark-all-complete" aria-label="Mark All Tasks as Completed">
-                        ✓ Mark All Complete
-                    </button>
-                    <button class="btn btn--warning" id="delete-completed" aria-label="Delete All Completed Tasks">
-                        🗑️ Delete Completed
-                    </button>
-                    <button class="btn btn--danger" id="delete-all" aria-label="Delete All Tasks">
-                        ⚠️ Delete All
-                    </button>
-                </div>
-            </section>
+            </footer>
         </div>
-    </main>
-    
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <p class="footer__text">
-                    Built with ❤️ by 
-                    <a href="https://dotaldokwaku.netlify.app" target="_blank" rel="noopener noreferrer" class="footer__link">
-                        Aldo Efui Adabunu
-                    </a>
-                </p>
-            </div>
-        </div>
-    </footer>
+    </div>
     
     <script src="js/main.js"></script>
 </body>
