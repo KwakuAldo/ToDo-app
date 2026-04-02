@@ -16,23 +16,16 @@ A modern, responsive To Do application built with vanilla JavaScript, following 
 
 ```
 todo-app/
-├── public/                 # Static files served directly
-│   └── index.html
-├── src/                   # Source code
-│   ├── js/               # JavaScript modules
-│   │   ├── components/   # UI components
-│   │   ├── services/     # Business logic
-│   │   ├── utils/        # Utility functions
-│   │   └── models/       # Data models
-│   ├── css/              # Stylesheets
-│   │   ├── base/         # Base styles
-│   │   ├── components/   # Component styles
-│   │   ├── pages/        # Page-specific styles
-│   │   └── utilities/    # Utility classes
-│   └── assets/           # Images, icons, etc.
-├── dist/                 # Production build output
-├── tests/                # Test files
-└── docs/                 # Documentation
+├── .github/workflows/      # GitHub Actions CI workflow
+├── public/                 # Static files served in development
+├── src/
+│   ├── css/                # Source styles
+│   ├── js/                 # Application logic
+│   └── assets/             # Icons and other assets
+├── dist/                   # Production build output
+├── Dockerfile              # Production container image
+├── webpack.config.js       # JavaScript bundling config
+└── postcss.config.js       # CSS processing config
 ```
 
 ## Getting Started
@@ -54,9 +47,30 @@ todo-app/
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run watch` - Watch for changes during development
-- `npm run test` - Run tests
+- `npm run test` - Run Jest with `--passWithNoTests`
 - `npm run lint` - Lint JavaScript code
 - `npm run format` - Format code with Prettier
+
+## CI/CD
+
+GitHub Actions is configured in `.github/workflows/ci.yml` to:
+
+- run on pushes to `Main` and `main`
+- support manual runs with `workflow_dispatch`
+- install dependencies
+- run lint and test checks
+- build and push the Docker image when Docker Hub secrets are configured
+
+## Recent Updates
+
+The following maintenance was completed in this repo:
+
+- fixed the GitHub Actions trigger definition so the workflow is recognized correctly
+- updated the workflow branch filter to include the current `Main` branch
+- fixed ESLint errors in `src/js/main.js`
+- updated the Jest script so CI passes when no test files exist yet
+
+Right now the project does not include Jest test files. `npm test` is intentionally configured to exit successfully in that case so CI can still run the rest of the pipeline.
 
 ## Technologies Used
 
