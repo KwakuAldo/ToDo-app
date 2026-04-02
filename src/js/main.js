@@ -206,7 +206,7 @@ function saveTask(taskId) {
 }
 
 /** CANCEL EDIT FUNCTION */
-function cancelEdit(taskId) {
+function cancelEdit() {
     displayTasks();
 }
 
@@ -292,7 +292,7 @@ function updateTaskCounts() {
     totalTasksElement.textContent = total;
     completedTasksElement.textContent = completed;
 
-    console.log(`Task counts updated. Total: ${total}, Completed: ${completed}, Pending: ${pending }`);
+    console.log(`Task counts updated. Total: ${total}, Completed: ${completed}, Pending: ${pending}`);
 }
 
 loadTasksFromStorage();

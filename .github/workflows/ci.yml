@@ -1,10 +1,11 @@
 name: ToDo App CI Pipeline
 
-on:
+'on':
   push:
-    branches: [ main ]
+    branches: [ Main, main ]
     tags:
       - 'v*'
+  workflow_dispatch:
 
 jobs:
   build-test-and-push:
