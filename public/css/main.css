@@ -218,12 +218,19 @@ body {
 .form-textarea,
 .form-select {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   border: 1px solid var(--terminal-border);
   border-radius: 6px;
   padding: 12px 14px;
   background: var(--terminal-panel-alt);
   color: var(--terminal-text);
   font: 400 1rem/1.4 var(--font-mono);
+}
+
+input[type="date"].form-input,
+input[type="time"].form-input {
+  inline-size: 100%;
 }
 
 .form-input::placeholder,
@@ -507,6 +514,11 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .task-form,
+  .control-buttons {
+    gap: 14px;
+  }
+
   .edit-row {
     flex-direction: column;
   }
@@ -523,27 +535,112 @@ body {
 
 @media (max-width: 640px) {
   body {
-    padding: 14px;
+    padding: 10px;
   }
 
   .container {
-    padding: 0 14px;
+    padding: 0 12px;
   }
 
   .main {
-    padding: 14px;
+    padding: 12px;
+  }
+
+  .header__content {
+    padding-bottom: 14px;
   }
 
   .terminal-frame {
     flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 0 2px;
+  }
+
+  .terminal-tab {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+  }
+
+  .header__subtitle {
+    margin-top: 6px;
+  }
+
+  .task-input,
+  .task-list-section {
+    margin-bottom: 16px;
+  }
+
+  .section-prompt {
+    padding: 14px 16px 0;
+    font-size: 0.92rem;
+  }
+
+  .task-input h2,
+  .task-list-title {
+    padding: 8px 16px 0;
+  }
+
+  .task-form {
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .form-row {
+    gap: 14px;
   }
 
   .task-stats {
     width: 100%;
+    gap: 10px;
   }
 
   .stat {
     flex: 1 1 0;
+    min-width: 0;
+    padding: 9px 10px;
+  }
+
+  .form-group {
+    min-width: 0;
+  }
+
+  input[type="date"].form-input,
+  input[type="time"].form-input {
+    padding-right: 10px;
+  }
+
+  .btn,
+  .btn--lg {
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .task-list-header {
+    gap: 12px;
+    padding: 0 16px 14px;
+  }
+
+  .task-item {
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .task-actions,
+  .control-buttons {
+    gap: 10px;
+  }
+
+  .task-actions .btn,
+  .control-buttons .btn {
+    width: 100%;
+  }
+
+  .control-buttons {
+    padding: 14px 16px 16px;
+  }
+
+  .footer__content {
+    padding: 14px 16px;
   }
 }
 
